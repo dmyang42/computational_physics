@@ -30,13 +30,17 @@
 - **Sandbox法**
 
 Sandbox方法简单来说是在越来越大的“盒子”中统计其中的粒子数，以此来计算分形维数。具体公式如下:
-$$N=r^D \tag{1}$$
+$$
+N=r^D
+$$
 由此可以得到简单的代码实现：只要将原点放在凝聚中心，然后选取一系列“盒子”，统计每个大小盒子中点数目，时间复杂度为 $O(num_{particle} \times num_{box})$ 。
 
 - **盒计数法**
 
 盒计数法与Sandbox法相反，是取越来越小的盒子，其公式如下:
-$$N(\epsilon)=(1/\epsilon)^D \tag{2}$$
+$$
+N(\epsilon)=(1/\epsilon)^D
+$$
 实际在代码中利用模块$numpy$的内置矩阵可以比较简易地选取子块，可以实现盒计数法。
 
 #### **程序使用说明：**
@@ -79,17 +83,49 @@ total particles: 10000328
 - sandbox_100000.png
 - boxcounting_100000.png
 
-
 #### **结果:**
 
+- 5000个粒子
 
-### 总结
+![dla_5000](./result_5000/dla_5000.png)
 
-- 写模拟的DLA模型主程序时，难点在于几个边界关系的处理，比较琐碎、需要注意很多的细节。
+用 $sandbox$ 和 $boxcounting$ 得到的分形维数分别如下:
 
-- 生成伪随机数的时候，注意要用到不同的种子，否则每次的结果都一样。虽然每次得到的图形都不同，但外观上都是分叉的形状，很相似。
+![dla_5000](./result_5000/sandbox_5000.png)
 
-- 要做模型演化的动图时，还需要额外学习画动图的方法，也会花去不少时间。
+![dla_5000](./result_5000/boxcounting_5000.png)
 
-- 另外在学习用两种不同的方法计算所得到的DLA图形的分形维数时，也需要对数据进行较多的处理，不同的方法处理方法不同，都会花去较多时间写程序。
+- 10000个粒子 (分形维数顺序是 $sandbox$ ，$boxcounting$)
+
+![dla_10000](./result_10000/dla_10000.png)
+
+![dla_10000](./result_10000/sandbox_10000.png)
+
+![dla_10000](./result_10000/boxcounting_10000.png)
+
+- 50000个粒子 (分形维数顺序是 $sandbox$ ，$boxcounting$)
+
+  ![dla_10000](./result_50000/dla_50000.png)
+
+  ![dla_10000](./result_50000/dla_50000.png)
+
+  ![dla_10000](./result_50000/sandbox_50000.png)
+
+  ![boxcounting_50000](./result_50000/boxcounting_50000.png)
+
+- 100000个粒子：
+
+![dla_100000](./result_100000/dla_100000.png)
+
+![dla_100000](./result_100000/sandbox_100000.png)
+
+![dla_100000](./result_100000/boxcounting_100000.png)
+
+- 200000个粒子：
+
+![dla_200000](./result_200000/dla_200000.png)
+
+![dla_100000](./result_200000/sandbox_200000.png)
+
+![dla_100000](./result_200000/boxcounting_200000.png)
 
